@@ -86,18 +86,10 @@ module.exports = {
     },
 
     user:async(req,res)=>{
-<<<<<<< HEAD
-        const { page, limit, search,categorys } = req.query;
-        const skip = (page - 1) * limit;
-        const pagelimit = parseInt(limit); 
-        let whereClause = { isDelete: false, isAvailable: true };
-=======
         const { page, limit, search,category } = req.query;
         const skip = (page - 1) * limit;
         const pagelimit = parseInt(limit); 
         let whereClause = { isDelete: false, isAvailable: true };
-        let selectClause = ['bookname', 'price', 'publicationYear', 'category', 'author','isAvailable'];
->>>>>>> library
         let query = {};
         if (limit) {
           query.skip = skip;
@@ -105,33 +97,16 @@ module.exports = {
         }
         if (search) {
           const searchcharacter = search.replace(/[^A-Za-z ]/gm, "");
-<<<<<<< HEAD
-          const authories = await Author.find({ authorname: { contains: searchcharacter },isDelete:false }).meta({ makeLikeModifierCaseInsensitive: true });
-          
-          whereClause={
-=======
           const authories = await Author.find({ authorname: { contains: searchcharacter } }).meta({ makeLikeModifierCaseInsensitive: true });
           
           whereClause={
             and:[{
                 isDelete: false
             },{
->>>>>>> library
                 or:[
                     { bookname :{ contains: searchcharacter }},
                     {author:{in: authories.map(author => author.id)}}
                 ]
-<<<<<<< HEAD
-           
-          }
-        }
-        if(categorys){
-            const filter=await Category.find({id:categorys,isDelete:false})
-             whereClause={category:{in: filter.map(category => category.id)}
-            } 
-        }
-        query.where = whereClause;
-=======
 
             }]
            
@@ -141,9 +116,6 @@ module.exports = {
             whereClause.category=category
         }
         query.where = whereClause;
-        query.select = selectClause;
->>>>>>> library
-
         let book = await Book.find(query).meta({ makeLikeModifierCaseInsensitive: true }).populate('category').populate('author');
         return res.status(200).json({
             page,

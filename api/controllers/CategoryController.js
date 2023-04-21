@@ -7,10 +7,7 @@
 
 
 module.exports = {
-<<<<<<< HEAD
     //list of all category
-=======
->>>>>>> library
     category:async(req,res)=>{
         const { page, limit, search } = req.query;
         const skip = (page - 1) * limit;
@@ -32,10 +29,9 @@ module.exports = {
           categorys
         });
     },
-<<<<<<< HEAD
+
     // add category
-=======
->>>>>>> library
+
     addCategory:async(req,res)=>{
         const name=req.body.name;
         const category=await Category.find({name:name,isDelete:false});
@@ -51,11 +47,8 @@ module.exports = {
             }
         }
     },
-<<<<<<< HEAD
   //get category by id
-=======
 
->>>>>>> library
     editCategory:async(req,res)=>{
         const id=req.params.id;
         const category =await Category.findOne({id:id,isDelete:false })
@@ -66,11 +59,9 @@ module.exports = {
                 return res.status(404).json({message:'id was not found'})
             } 
     },
-<<<<<<< HEAD
+
     //update category by id
-=======
-    
->>>>>>> library
+
     updateCategory:async(req,res)=>{
         const name=req.body.name;
         const id=req.params.id
@@ -89,11 +80,8 @@ module.exports = {
               })
         }
     },
-<<<<<<< HEAD
- //delete category by id
-=======
 
->>>>>>> library
+ //delete category by id
     deleteCategory:async(req,res)=>{
         const id=req.params.id;
         const category=await Category.updateOne(id,{isDelete:true,deletedAt:new Date()})
