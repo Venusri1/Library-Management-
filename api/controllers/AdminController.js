@@ -34,7 +34,11 @@ module.exports = {
            }
        }
     },
+<<<<<<< HEAD
   //admin logout
+=======
+
+>>>>>>> library
     adminuserLogout:async(req,res)=>{
         const id= req.adminId;
         const token =req.headers.authorization.split(" ")[1];

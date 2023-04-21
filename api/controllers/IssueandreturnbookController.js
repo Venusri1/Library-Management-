@@ -8,7 +8,11 @@
 
 
 module.exports = {
+<<<<<<< HEAD
     // book issued and return history
+=======
+
+>>>>>>> library
     bookHistory:async(req,res)=>{
         const bookHistory=await Issueandreturnbook.find({}).populate('book');
         if(bookHistory){
@@ -17,7 +21,10 @@ module.exports = {
             return  res.status(200).json({message:'not found'})
         }
     },
+<<<<<<< HEAD
     //issued book history and book was not returned at.
+=======
+>>>>>>> library
     issuedbookHistory:async(req,res)=>{
         const book=req.params.book;
         console.log("book",book)
@@ -30,7 +37,11 @@ module.exports = {
         }
     },
 
+<<<<<<< HEAD
 //issuing book
+=======
+
+>>>>>>> library
     issuedBook:async(req,res)=>{
         const {book,issuedBookBy}=req.body
         const user=await User.findOne({id:issuedBookBy});
@@ -54,7 +65,11 @@ module.exports = {
         }
 
     },
+<<<<<<< HEAD
   //return book
+=======
+
+>>>>>>> library
     returnedBook:async(req,res)=>{
         const {book,returnBookBy}=req.body;
         const user=await User.findOne({id:returnBookBy});

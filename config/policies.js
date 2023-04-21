@@ -18,6 +18,7 @@ module.exports.policies = {
   ***************************************************************************/
  
   // '*': true,
+<<<<<<< HEAD
   // AdminController:{
   //   'adminuserLogout': 'Auth',
   // },
@@ -37,5 +38,26 @@ module.exports.policies = {
   // IssueandreturnbookController:{
   //   '*': 'Auth',
   // }
+=======
+  AdminController:{
+    'adminuserLogout': 'Auth',
+  },
+  UserController:{
+    'LogOut': 'UserAuth',
+    'user':'UserAuth'
+  },
+  CategoryController:{
+    '*': 'Auth',
+  },
+  AuthorController:{
+    '*': 'Auth',
+  },
+  BookController:{
+    '*': 'Auth',
+  },
+  IssueandreturnbookController:{
+    '*': 'Auth',
+  }
+>>>>>>> library
 
 };

@@ -22,7 +22,11 @@ module.exports.bootstrap = async function() {
   
   await Admin.createEach([
     { email: 'admin1@gmail.com',password:'admin1234' },
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> library
   ]);
   // ```
 

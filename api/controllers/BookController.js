@@ -7,7 +7,10 @@
 
 
 module.exports = {
+<<<<<<< HEAD
     //list of all books
+=======
+>>>>>>> library
     book:async(req,res)=>{
         const { page, limit, search } = req.query;
         const skip = (page - 1) * limit;
@@ -30,7 +33,11 @@ module.exports = {
         });
 
     },
+<<<<<<< HEAD
    // add book
+=======
+
+>>>>>>> library
     addBook:async(req,res)=>{
         const {bookname,price,publicationYear,category,author}=req.body;
         const categoryValidation=await Category.findOne({id:category,isDelete:false});
@@ -58,7 +65,11 @@ module.exports = {
            }
        }
     },
+<<<<<<< HEAD
    // get book by id
+=======
+
+>>>>>>> library
     editBook:async(req,res)=>{
         const id=req.params.id;
         const book=await Book.findOne({id:id,isDelete:false}).populateAll();
@@ -69,7 +80,11 @@ module.exports = {
         }
 
     },
+<<<<<<< HEAD
   //update book by id
+=======
+
+>>>>>>> library
     updateBook:async(req,res)=>{
         const id=req.params.id;
         const {bookname,price,publicationYear,category,author}=req.body;
@@ -97,7 +112,11 @@ module.exports = {
        }
         
     },
+<<<<<<< HEAD
     // delete book by id
+=======
+    
+>>>>>>> library
     deleteBook:async(req,res)=>{
         const id=req.params.id;
         const book=await Book.findOne({id:id,isDelete:false,isAvailable:true});

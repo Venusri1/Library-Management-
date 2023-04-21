@@ -7,7 +7,11 @@
 
 
 module.exports = {
+<<<<<<< HEAD
  //list of all aouthor with search and pagination 
+=======
+
+>>>>>>> library
     author:async(req,res)=>{
         const { page, limit, search } = req.query;
         const skip = (page - 1) * limit;
@@ -30,7 +34,11 @@ module.exports = {
         });
 
     },
+<<<<<<< HEAD
  //add author
+=======
+
+>>>>>>> library
     addAuthor:async(req,res)=>{
         const authorname=req.body.authorname
         const author =await Author.find({authorname:authorname,isDelete:false});
@@ -46,7 +54,11 @@ module.exports = {
             }
         }
     },
+<<<<<<< HEAD
    //edit author
+=======
+
+>>>>>>> library
     editAuthor:async(req,res)=>{
         const id=req.params.id;
         const author =await Author.findOne({id:id,isDelete:false })
@@ -57,7 +69,11 @@ module.exports = {
                 return res.status(404).json({message:'id was not found'})
             } 
     },
+<<<<<<< HEAD
 //update author
+=======
+
+>>>>>>> library
     updateAuthor:async(req,res)=>{
         const authorname=req.body.authorname;
         const id=req.params.id
@@ -77,7 +93,10 @@ module.exports = {
         }
 
     },
+<<<<<<< HEAD
     //delete author
+=======
+>>>>>>> library
     deleteAuthor:async(req,res)=>{
         const id=req.params.id;
         const author=await Author.updateOne(id,{isDelete:true,deletedAt:new Date()})
